@@ -18,9 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('productos/create', [ProductController::class, 'create']);
 Route::get('productos', [ProductController::class, 'listProducts']);
+Route::get('productos/create', [ProductController::class, 'create']);
 Route::get('detalle', [ProductController::class, 'detail']);
+Route::post('productos/store', [ProductController::class, 'store'])->name('product.store');
 
 /* Route::get('productos/create', function () {
     return "AQUI VA A ESTAR EL FORMULARIO DE LA CREACION DE PRODUCTOS";
