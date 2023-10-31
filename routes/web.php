@@ -22,6 +22,9 @@ Route::get('productos', [ProductController::class, 'listProducts']);
 Route::get('productos/create', [ProductController::class, 'create']);
 Route::get('detalle', [ProductController::class, 'detail']);
 Route::post('productos/store', [ProductController::class, 'store'])->name('product.store');
+Route::get('productos/{product}/edit',[ProductController::class,'edit'])->name('product.edit');
+Route::put('productos/{product}', [ProductController::class, 'update'])->name('product.update');
+Route::delete('productos/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 
 /* Route::get('productos/create', function () {
     return "AQUI VA A ESTAR EL FORMULARIO DE LA CREACION DE PRODUCTOS";

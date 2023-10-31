@@ -43,10 +43,16 @@
                     <div class="card" style="width: 18rem;">
                         <img src="img/producto1.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">{{$produ->name}}</h5>
-                            <p class="card-text">{{$produ->description}}</p>
-                            <p class="card-text">{{$produ->price}}</p>
-                            <a href="#" class="btn btn-primary my-background">Añadir Carrito</a>
+                            <h5 class="card-title">{{ $produ->name }}</h5>
+                            <p class="card-text">{{ $produ->description }}</p>
+                            <p class="card-text">{{ $produ->price }}</p>
+                            <a href="{{ route('product.edit', $produ) }}" class="btn btn-primary my-background">Editar</a>
+
+                            <form method="POST" action="{{ route('product.destroy', ['product' => $produ->id]) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Eliminar Producto</button>
+                            </form>
                         </div>
                     </div>
                 </div>
